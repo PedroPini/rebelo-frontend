@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react"
+import Image from 'next/image'
 const Navbar =() =>{
 // State to track the visibility of the mobile menu
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,7 +13,7 @@ const Navbar =() =>{
 <nav className="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
 <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
   <a href="#" className="flex items-center">
-      <img src="https://flowbite.com/docs/images/logo.svg" className="h-8 mr-3" alt="Flowbite Logo" />
+      <Image src="https://flowbite.com/docs/images/logo.svg" className="h-8 mr-3" alt="Reebelo Logo" />
       <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Reebelo</span>
   </a>
   <button onClick={toggleMenu} data-collapse-toggle="navbar-multi-level" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-multi-level" aria-expanded={isMenuOpen}>

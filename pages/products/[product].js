@@ -5,6 +5,7 @@ import { json } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import RootLayout from '../layout';
 import Navbar from '@component/Navbar';
+import Image from 'next/image'
 async function getProductId(id) {
     const data = await fetch(process.env.API_URL+"/product/"+id, {method: 'GET', next: { revalidate: 3600 }})
 
@@ -63,7 +64,7 @@ async function getProductId(id) {
         <div className="flex h-screen w-screen items-center justify-center">
         
           <div className="max-w-4xl overflow-hidden rounded-lg bg-white shadow-lg">
-            <img
+            <Image
               className="h-56 w-full object-cover object-center"
               src={product.data?.images ? product.data.images : "https://dummyimage.com/720x400"}
               alt={product.data.name}
