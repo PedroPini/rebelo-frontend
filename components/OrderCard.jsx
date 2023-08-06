@@ -12,18 +12,8 @@ const OrderCard = ({order, items}) => {
 
 
   return (
-    
-    <Link
- 
-      href="/products/[product]"
-      as={`products/${order.id}`}
-      key={order.id}
      
-    
-
-    >
-   
-      <div className="text-black duration-50 mb-4 h-70 transform cursor-pointer rounded-lg bg-white p-4 shadow-lg transition-transform hover:translate-x-2">
+      <div className="text-black duration-50 mb-5 h-70 transform cursor-pointer rounded-lg bg-white p-4 shadow-lg transition-transform hover:translate-x-2">
         <h2 className="text-lg font-medium">Order #{order.id}</h2>
 
         <p className="my-2 text-lg font-semibold text-gray-500">
@@ -47,9 +37,8 @@ const OrderCard = ({order, items}) => {
           {order.metadata.zip}
         </p>
 
-        <p className="text-gray-500">Delivery Date: {order.metadata.delivery_estimate}</p>
+        <p className="text-black-500 mb-1">Delivery Date: {order.metadata.delivery_estimate}</p>
       </div>
-    </Link>
     
   )
 }
