@@ -7,7 +7,7 @@ import RootLayout from '../layout';
 import Navbar from '@component/Navbar';
 import Image from 'next/image'
 async function getProductId(id) {
-    const data = await fetch(process.env.API_URL+"/product/"+id, {method: 'GET', next: { revalidate: 3600 }})
+    const data = await fetch(process.env.API_URL+"/product/"+id, {method: 'GET',  credentials: 'include', next: { revalidate: 3600 }})
 
     if (!data.ok) {
       throw new Error('Failed to fetch data')

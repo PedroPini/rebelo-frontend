@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import RootLayout from '../app/layout';
 import OrderCard from './OrderCard'
 async function getAllCharacters() {
-  const data = await fetch(process.env.API_URL+"/order/all", {method: 'GET', next: { revalidate: 3600 }})
+  const data = await fetch(process.env.API_URL+"/order/all", {method: 'GET',  credentials: 'include', next: { revalidate: 3600 }})
 
   if (!data.ok) {
     throw new Error('Failed to fetch data')
