@@ -2,7 +2,7 @@ import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, PromiseLik
 import ProductCard from "./ProductCard"
 
 async function getAllCharacters() {
-    const data = await fetch(process.env.API_URL+"/product/all", {method: 'GET',  credentials: 'include', next: { revalidate: 3600 }})
+    const data = await fetch(process.env.API_URL+"/product/all", {method: 'GET', next: { revalidate: 3600 }})
   
     if (!data.ok) {
       throw new Error('Failed to fetch data')

@@ -7,7 +7,7 @@ import RootLayout from '../layout';
 import Navbar from '@component/Navbar';
 import Image from 'next/image'
 async function getProductId(id) {
-    const data = await fetch(process.env.API_URL+"/product/"+id, {method: 'GET',  credentials: 'include', next: { revalidate: 3600 }})
+    const data = await fetch(process.env.API_URL+"/product/"+id, {method: 'GET',  next: { revalidate: 3600 }})
 
     if (!data.ok) {
       throw new Error('Failed to fetch data')
@@ -65,8 +65,8 @@ async function getProductId(id) {
         
           <div className="max-w-4xl overflow-hidden rounded-lg bg-white shadow-lg">
             <Image
-              className="h-56 w-full object-cover object-center"
-              src={product.data?.images ? product.data.images : "https://dummyimage.com/720x400"}
+              className="h-56 w-full object-cover object-center" height={150} width={50}
+              src={product.data.images ? product.data.images.toString() : "https://dummyimage.com/720x400"}
               alt={product.data.name}
             />
     

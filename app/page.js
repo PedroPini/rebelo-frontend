@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Navbar from '@component/Navbar'
 import ProductList from '@component/ProductList'
 
