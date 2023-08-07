@@ -41,9 +41,10 @@ async function getProductId(id) {
     if (loading) {
       return <div>Loading...</div>;
     }
-    if (!id) {
-        return (
-          <RootLayout>
+   
+    
+      return (!id ?
+        <RootLayout>
             
           <div className="flex h-screen w-screen items-center justify-center">
            
@@ -55,10 +56,7 @@ async function getProductId(id) {
             </div>
           </div>
           </RootLayout>
-        )
-      }
-    
-      return (
+          :
         <RootLayout>
 
         <div className="flex h-screen w-screen items-center justify-center">
