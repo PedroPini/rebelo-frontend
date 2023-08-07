@@ -1,4 +1,3 @@
-
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { useState, useEffect } from 'react';
@@ -39,8 +38,6 @@ async function getProductId(id) {
     if (loading) {
       return <Loading/>;
     }
-   
-    
       return (<RootLayout> { !id ?
 
         <div className="flex h-screen w-screen items-center justify-center">

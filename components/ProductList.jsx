@@ -1,4 +1,4 @@
-import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, PromiseLikeOfReactNode } from "react"
+
 import ProductCard from "./ProductCard"
 import { findPriceForProduct } from "../utils/functions"
 async function getAllProducts() {
