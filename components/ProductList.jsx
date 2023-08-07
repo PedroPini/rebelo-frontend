@@ -16,9 +16,9 @@ async function getAllProducts() {
       <main> 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           {data?.message?.data?.map((product) => (
-           <>
+           <div key={product.id} className="md:col-span-1 lg:col-span-1">
             <ProductCard key={product.id} id={product.id} name={product.name} description={product.description} price={findPriceForProduct(product.id, data?.prices)}/>
-            </>
+            </div>
           ))}
         </div>
       </main>

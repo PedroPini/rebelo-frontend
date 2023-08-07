@@ -9,7 +9,7 @@ const OrderCard = ({order, items}) => {
         <h2 className="text-lg font-medium">Order #{order.id}</h2>
 
         <p className="my-2 text-lg font-semibold text-gray-500">
-          Status: {order.status}
+          Status: {order.metadata.status || order.status}
         </p>
 
         <ul className="text-black mb-2 border-y">
