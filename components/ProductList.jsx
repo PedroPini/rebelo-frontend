@@ -1,15 +1,15 @@
 import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, PromiseLikeOfReactNode } from "react"
 import ProductCard from "./ProductCard"
-
-async function getAllCharacters() {
-    const data = await fetch(process.env.API_URL+"/product/all", {method: 'GET', next: { revalidate: 3600 }})
+export const getAllCharacters = async () => {
+  const data = await fetch(process.env.API_URL+"/product/all", {method: 'GET', next: { revalidate: 3600 }})
   
-    if (!data.ok) {
-      throw new Error('Failed to fetch data')
-    }
-  
-    return data.json()
+  if (!data.ok) {
+    throw new Error('Failed to fetch data')
   }
+
+  return {
+    props: {data: data.json()}}
+}
   
 // Function to find the price for a specific product id
 function findPriceForProduct(productId, prices) {
@@ -19,9 +19,8 @@ function findPriceForProduct(productId, prices) {
   }
   
   
-  export default async function ProductList() {
-    const data = await getAllCharacters()
-    console.log(data)
+  export default function ProductList({data}) {
+  
     return (
       <main>
         
@@ -32,10 +31,6 @@ function findPriceForProduct(productId, prices) {
             </>
           ))}
         </div>
-           
-
-        
-       
       </main>
     )
   }
