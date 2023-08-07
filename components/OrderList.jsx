@@ -23,11 +23,10 @@ export default  function OrdersList() {
   }, []);
     
     return(  
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">   
+    <main className="flex min-h-screen  flex-col items-center justify-between p-8 md:p-24 lg:p-24">   
       <div className="z-10 w-full max-w-md items-center justify-between font-mono text-sm lg:flex">
           {orders?.data?.data?.map((order) => (
           <OrderCard key={order.id} order={order} items={orders.items}/>
-        
       ))}
       </div> 
      </main>);

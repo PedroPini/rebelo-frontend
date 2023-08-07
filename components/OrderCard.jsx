@@ -5,7 +5,7 @@ import React from "react";
 const OrderCard = ({order, items}) => {
   return (
      
-      <div className="text-black duration-50 mb-5 h-70 transform cursor-pointer rounded-lg bg-white p-4 shadow-lg transition-transform hover:translate-x-2">
+      <div className="text-black duration-50 mb-5 h-70  transform cursor-pointer rounded-lg bg-white p-4 shadow-lg transition-transform hover:translate-x-2">
         <h2 className="text-lg font-medium">Order #{order.id}</h2>
 
         <p className="my-2 text-lg font-semibold text-gray-500">
