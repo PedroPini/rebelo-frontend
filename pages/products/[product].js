@@ -1,18 +1,16 @@
 
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import { json } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import RootLayout from '../layout';
-import Navbar from '@component/Navbar';
+import RootLayout from '@component/Layout';
+import Loading from '@component/Loading';
 import Image from 'next/image'
+import { dividePriceForProduct } from "../../utils/functions"
 async function getProductId(id) {
     const data = await fetch(process.env.API_URL+"/product/"+id, {method: 'GET',  next: { revalidate: 3600 }})
-
     if (!data.ok) {
       throw new Error('Failed to fetch data')
     }
-  
     return data.json()
   }
 
@@ -39,13 +37,13 @@ async function getProductId(id) {
     }, [id]);
   
     if (loading) {
-      return <div>Loading...</div>;
+      return <Loading/>;
     }
-    if (!id) {
-        return (
-          <RootLayout>
-            
-          <div className="flex h-screen w-screen items-center justify-center">
+   
+    
+      return (<RootLayout> { !id ?
+
+        <div className="flex h-screen w-screen items-center justify-center">
            
           
             <div className="max-w-4xl overflow-hidden rounded-lg bg-white shadow-lg">
@@ -54,22 +52,14 @@ async function getProductId(id) {
               </div>
             </div>
           </div>
-          </RootLayout>
-        )
-      }
-    
-      return (
-        <RootLayout>
-
-        <div className="flex h-screen w-screen items-center justify-center">
-        
-          <div className="max-w-4xl overflow-hidden rounded-lg bg-white shadow-lg">
+          :
+        <div className="flex h-screen w-screen items-center justify-center"> 
+          <div className="max-w-4xl w-96 overflow-hidden rounded-lg bg-white shadow-lg">
             <Image
-              className="h-56 w-full object-cover object-center" height={150} width={50}
+              className="h-56  w-full object-cover object-center" height={150} width={50}
               src={product.data.images ? product.data.images.toString() : "https://dummyimage.com/720x400"}
               alt={product.data.name}
             />
-    
             <div className="p-6">
               <h3 className="text-black text-lg font-semibold text-gray-800">
                 {product.data.name}
@@ -79,16 +69,16 @@ async function getProductId(id) {
     
               <div className="mt-4 flex items-center justify-between">
                 <span className="text-lg font-bold text-gray-800">
-                  ${product.price.toFixed(2)} - {product.data.description}
+                  ${dividePriceForProduct(product?.price)} - {product.data.description}
                 </span>
     
                 
               </div>
             </div>
           </div>
-        </div>
+        </div>}
 
-        </RootLayout>
-      )
+        
+</RootLayout>)
 
   }

@@ -1,16 +1,8 @@
 
 'use client';
-import Link from 'next/link'
-import NextPage from 'next'
-import { useRouter }  from 'next/navigation';
+
 import React from "react";
-import ReactDOM from "react-dom";
-
-
-
 const OrderCard = ({order, items}) => {
-
-
   return (
      
       <div className="text-black duration-50 mb-5 h-70 transform cursor-pointer rounded-lg bg-white p-4 shadow-lg transition-transform hover:translate-x-2">
@@ -30,7 +22,7 @@ const OrderCard = ({order, items}) => {
         </ul>
          
         <p className="text-black-500">
-        <h3 className="text-lg font-medium">Shipping Details </h3>
+        <span className="text-lg font-medium">Shipping Details </span>
           Tracking Number: {order.metadata.id}<br></br>
           Delivery By: {order.metadata.courier}<br></br>
           Delivery Address: {order.metadata.city}, {order.metadata.state}{' '}
