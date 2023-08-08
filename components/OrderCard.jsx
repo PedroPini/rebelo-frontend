@@ -2,6 +2,8 @@
 'use client';
 
 import React from "react";
+import { dividePriceForProduct } from "../utils/functions"
+
 const OrderCard = ({order, items}) => {
   return (
      
@@ -13,23 +15,37 @@ const OrderCard = ({order, items}) => {
         </p>
 
         <ul className="text-black mb-2 border-y">
-          {items.data.map((item) => (
-            <li key={item.description}>
-              {item.quantity} x Product {item.description} <br></br>
-               Unit Price ${item.amount} {item.currency.toUpperCase()}
-            </li>
+       
+          {items.data.filter(item_id => order.metadata.invoiceItem == item_id.id)
+          .map((item) => (
+            <>
+              <li key={item.description}>
+                {item.quantity} x Product {item.description} <br></br>
+              </li>
+              <p className="text-black-500">
+              <span className="text-lg font-medium">Total: ${dividePriceForProduct(item.amount)} {item.currency.toUpperCase()} </span>
+              </p>
+            </>
           ))}
         </ul>
          
         <p className="text-black-500">
         <span className="text-lg font-medium">Shipping Details </span>
+        <br/>
+        {order.metadata.courier ? 
+        <>
           Tracking Number: {order.metadata.id}<br></br>
           Delivery By: {order.metadata.courier}<br></br>
           Delivery Address: {order.metadata.city}, {order.metadata.state}{' '}
           {order.metadata.zip}
+          <p className="text-black-500 mb-1">Delivery Date: {order.metadata.delivery_estimate}</p>
+          </>
+        : <>No Shipping information available</>
+        }
+          
         </p>
 
-        <p className="text-black-500 mb-1">Delivery Date: {order.metadata.delivery_estimate}</p>
+       
       </div>
     
   )
