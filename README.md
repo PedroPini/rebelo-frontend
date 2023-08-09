@@ -6,7 +6,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ### 1. Clone the repository:
 
-   ```git clone https://github.com/PedroPini/reebelo-backend.git```
+   ```git clone https://github.com/PedroPini/reebelo-frontend.git```
    
 ### 2. Install required NPM packages: 
    
