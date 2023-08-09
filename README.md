@@ -22,7 +22,8 @@ yarn dev
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3001](http://localhost:3001) with your browser to see the result.
+Observation: Start the backend first http://localhost:3000, then next will automatically start at http://localhost:3001
 
 You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
